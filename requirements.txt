@@ -1,0 +1,7 @@
+Django==3.0.8
+python-decouple==3.1
+whitenoise
+gunicorn
+dj-database-url
+static==1.1.1
+psycopg2-binary

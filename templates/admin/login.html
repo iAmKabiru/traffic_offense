@@ -1,0 +1,70 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <!-- CSS only -->
+    <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
+</head>
+
+<style>
+
+    .row{
+        height: 100vh;
+        width: 100%;
+    }
+    .side {
+        background-image: url('/static/side.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        /* opacity: 0.5; */
+    }
+    .side-text{
+    
+        background: rgba(0, 0, 0, 0.6);
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        color: #fff;
+        border-radius: 5px;;
+
+    }
+</style>
+
+<body>
+
+<div class="row">
+    <div class="col-md-6 side d-flex justify-content-center align-items-center">
+        <h2 class="side-text text-white p-5">Traffic offence Management system</h2>
+    </div>
+    <div class="col-md-6 login-section p-5">
+        <img class="img-fluid mb-5" src="{% static 'logo.png' %}">
+        <div class="card login-card p-5 shadow-lg">
+            <form method="POST">
+                {% csrf_token %}
+                {% if form.errors %}
+                <div class="alert alert-danger">username or password not correct</div>  
+                {% endif %}
+                <div class="mb-3">
+                    <label for="username"><strong>Username:</strong></label>
+                        <input type="text" name="username" class="form-control">
+                </div>
+
+                <div class="mb-3">
+                    <label for="username"><strong>Password:</strong></label>
+                        <input type="password" name="password" class="form-control">
+                </div>
+
+                <div class="mb-3">
+                        <input type="submit" value="Login" class="form-control btn btn-primary shadow-lg">
+                </div>
+
+                <div class="mb-3">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+    
+</body>
+</html>
